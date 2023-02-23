@@ -17,6 +17,12 @@ import {
 class TodoPage extends Component {
     state={todoItemName:'',todoItem:{},showTaskErrMsg:false}
 
+    onClickSaveButton = () => {
+        const {onClickSave} = this.props 
+
+        onClickSave()
+    }
+
     onChangeTodoInput = event => {
         this.setState({todoItemName:event.target.value})
     }
@@ -67,6 +73,7 @@ class TodoPage extends Component {
                                     />
                                 )}
                             </TodoItemsList>
+                            <AddButton onClick={this.onClickSaveButton}>Save</AddButton>
                         </TodoContainer>
                     )
                 }

@@ -3,8 +3,12 @@ import styled from 'styled-components'
 export const TodoListItem=styled.li`
     display: flex;
     flex-direction: row;
-    width:100%;
+    width:85vw;
     margin-bottom:10px;
+
+    @media screen and (min-width:768px){
+        width:100%;
+    }
 `
 
 export const CheckBoxInput=styled.input`
@@ -18,7 +22,7 @@ export const LabelContainer=styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width:50vw;
+    width:100vw;
     background-color: #e6f6ff;
     height:35px;
     border-left:solid 5px #096f92;
@@ -26,6 +30,10 @@ export const LabelContainer=styled.div`
     border-radius:5px;
     padding-left:15px;
     padding-top:10px;
+
+    @media screen and (min-width:7768px){
+        width:50vw;
+    }
 `
 
 export const TodoLabel=styled.label`

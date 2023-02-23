@@ -12,11 +12,15 @@ class App extends Component{
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  handleSave = () => {
+    localStorage.setItem('todoList', JSON.stringify(this.state.todoList))
+  }
+
+  /* componentDidUpdate(prevProps, prevState) {
     if (prevState.todoList !== this.state.todoList) {
       localStorage.setItem('todoList', JSON.stringify(this.state.todoList));
     }
-  }
+  } */
 
   addToList = (newTodoItem) => {
     this.setState(prevState => ({todoList:[...prevState.todoList,newTodoItem]}))
@@ -54,7 +58,7 @@ class App extends Component{
         changeCheckedStatus:this.changeCheckedStatus,
       }}
       >
-          <TodoPage />
+          <TodoPage onClickSave = {this.handleSave}/>
       </TodoContext.Provider>
     )
   }
