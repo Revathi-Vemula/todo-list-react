@@ -22,7 +22,7 @@ const TodoItem = props => {
 
     return (
         <TodoListItem>
-            <CheckBoxInput type="checkbox" id={id} onClick={onClickCheckbox}/>
+            <CheckBoxInput type="checkbox" id={id} onClick={onClickCheckbox} checked ={isChecked} />
             <LabelContainer>
                 <TodoLabel htmlFor={id} isChecked={isChecked}>{name}</TodoLabel>
                 <DeleteButton type="button" onClick={onClickDeleteTodo}>

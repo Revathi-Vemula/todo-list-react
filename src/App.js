@@ -5,8 +5,22 @@ import TodoPage from './components/TodoPage'
 class App extends Component{
   state = {todoList:[]}
 
+  componentDidMount(){
+    const storedTodoList = localStorage.getItem("todoList")
+    if (storedTodoList) {
+      this.setState({todoList:JSON.parse(storedTodoList)})
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.todoList !== this.state.todoList) {
+      localStorage.setItem('todoList', JSON.stringify(this.state.todoList));
+    }
+  }
+
   addToList = (newTodoItem) => {
     this.setState(prevState => ({todoList:[...prevState.todoList,newTodoItem]}))
+    // localStorage.setItem("todoList",JSON.stringify(this.state.todoList))
   }
 
   removeFromList = (todoId) => {
